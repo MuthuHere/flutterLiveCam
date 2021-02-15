@@ -75,11 +75,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     if (controller.value.isInitialized) {
       return Scaffold(
-        body: AspectRatio(
-          aspectRatio: controller.value.aspectRatio,
-          child: CameraPreview(
-            controller,
-          ),
+        body: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * .7,
+              width: MediaQuery.of(context).size.width,
+              child: CameraPreview(
+                controller,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: CircleAvatar(
+                child: Icon(
+                  Icons.camera,
+                ),
+              ),
+            )
+          ],
         ),
       );
     } else {
